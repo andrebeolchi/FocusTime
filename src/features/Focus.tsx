@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-paper";
-import { colors } from "../utils/colors";
 
-export const Focus = () => (
-	<View style={styles.container}>
-		<View style={styles.inputContainer}>
-			<TextInput
-				label={"What would you like to focus on?"}
-				mode="outlined"
-			/>
+export const Focus = () => {
+	const [text, setText] = useState<string>("");
+
+	return (
+		<View style={styles.container}>
+			<View style={styles.inputContainer}>
+				<TextInput
+					label={"What would you like to focus on?"}
+					onChangeText={setText}
+				/>
+			</View>
 		</View>
-	</View>
-);
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -22,8 +25,5 @@ const styles = StyleSheet.create({
 		flex: 0.5,
 		padding: 32,
 		justifyContent: "center"
-	},
-	text: {
-		color: colors.textPrimary
 	}
 });
