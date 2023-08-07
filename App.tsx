@@ -1,18 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 export default function App() {
 	return (
-		<View style={styles.container}>
+		<SafeAreaView>
 			<Text>Hello World</Text>
-		</View>
+		</SafeAreaView>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center"
-	}
-});
