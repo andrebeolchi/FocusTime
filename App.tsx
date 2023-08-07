@@ -1,10 +1,11 @@
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet, Text } from "react-native";
+import { colors } from "./src/utils/colors";
 
 export default function App() {
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text>Hello World</Text>
+			<Text style={styles.text}>Hello World</Text>
 			<StatusBar />
 		</SafeAreaView>
 	);
@@ -12,6 +13,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: colors.darkBlue
+	},
+	text: {
+		color: colors.white
 	}
 });
