@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 import { Focus } from "./src/features/Focus";
+import { Timer } from "./src/features/Timer";
 import { colors } from "./src/utils/colors";
 
 export default function App() {
@@ -11,9 +12,11 @@ export default function App() {
 			{!currentSubject ? (
 				<Focus addSubject={setCurrentSubject} />
 			) : (
-				<View>
-					<Text style={styles.text}>I am going to render the timer for {currentSubject}</Text>
-				</View>
+				<Timer
+					focusSubject={currentSubject}
+					onTimerEnd={() => {}}
+					clearSubject={() => {}}
+				/>
 			)}
 			<StatusBar />
 		</SafeAreaView>
