@@ -13,3 +13,4 @@ This application served as an opportunity for me to further solidify my React Na
 * Styling in Native with StyleSheet
 * Testing apps on multiple devices
 * Proper ways to organize files and folders
+* TypeScript
