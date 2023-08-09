@@ -6,7 +6,9 @@ export const Timing = ({ onChangeTime }: { onChangeTime: (time: number) => void 
 	return (
 		<>
 			{[5, 10, 15].map((time) => (
-				<View style={styles.timingButton}>
+				<View
+					style={styles.timingButton}
+					key={time}>
 					<RoundedButton
 						size={64}
 						title={String(time)}
