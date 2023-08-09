@@ -7,7 +7,7 @@ import { colors } from "./src/utils/colors";
 
 export default function App() {
 	const [currentSubject, setCurrentSubject] = useState<string>("");
-	const [history, setHistory] = useState<string[]>(["temp feat"]);
+	const [history, setHistory] = useState<string[]>([]);
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -19,7 +19,9 @@ export default function App() {
 			) : (
 				<Timer
 					focusSubject={currentSubject}
-					onTimerEnd={() => {}}
+					onTimerEnd={(subject) => {
+						setHistory([...history, subject]);
+					}}
 					clearSubject={() => {
 						setCurrentSubject("");
 					}}

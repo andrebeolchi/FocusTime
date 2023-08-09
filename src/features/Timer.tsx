@@ -11,7 +11,7 @@ import { Timing } from "./Timing";
 
 interface TimerProps {
 	focusSubject: string;
-	onTimerEnd: () => void;
+	onTimerEnd: (subject: string) => void;
 	clearSubject: () => void;
 }
 
@@ -25,7 +25,7 @@ const PATTERN = [
 	1 * ONE_SECOND_IN_MS
 ];
 
-export const Timer = ({ focusSubject, clearSubject }: TimerProps) => {
+export const Timer = ({ focusSubject, clearSubject, onTimerEnd }: TimerProps) => {
 	useKeepAwake();
 	const [isStarted, setIsStarted] = useState<boolean>(false);
 	const [progress, setProgress] = useState<number>(1);
@@ -36,6 +36,7 @@ export const Timer = ({ focusSubject, clearSubject }: TimerProps) => {
 		setIsStarted(false);
 		setProgress(1);
 		reset();
+		onTimerEnd(focusSubject);
 	};
 
 	return (
