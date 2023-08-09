@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { RoundedButton } from "../components/Button";
 import { Countdown } from "../components/Countdown";
+import { colors } from "../utils/colors";
 import { spacing } from "../utils/sizes";
 
 interface TimerProps {
@@ -21,7 +22,12 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }: TimerProps) =>
 					onProgress={() => {}}
 					onEnd={onTimerEnd}
 				/>
+				<View style={{ paddingTop: spacing.xxl }}>
+					<Text style={styles.title}>Focusing on:</Text>
+					<Text style={styles.task}>{focusSubject}</Text>
+				</View>
 			</View>
+
 			<View style={styles.buttonWrapper}>
 				{!isStarted && (
 					<RoundedButton
@@ -46,14 +52,24 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	countdown: {
-		flex: 0.4,
+		flex: 0.5,
 		alignItems: "center",
 		justifyContent: "center"
 	},
 	buttonWrapper: {
-		flex: 0.3,
+		flex: 0.4,
 		flexDirection: "row",
 		padding: spacing.md,
-		justifyContent: "center"
+		justifyContent: "center",
+		alignItems: "center"
+	},
+	title: {
+		color: colors.textPrimary,
+		fontWeight: "bold",
+		textAlign: "center"
+	},
+	task: {
+		color: colors.textPrimary,
+		textAlign: "center"
 	}
 });
