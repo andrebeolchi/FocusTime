@@ -6,6 +6,7 @@ import { RoundedButton } from "../components/Button";
 import { Countdown } from "../components/Countdown";
 import { colors } from "../utils/colors";
 import { spacing } from "../utils/sizes";
+import { Timing } from "./Timing";
 
 interface TimerProps {
 	focusSubject: string;
@@ -23,7 +24,7 @@ const PATTERN = [
 	1 * ONE_SECOND_IN_MS
 ];
 
-export const Timer = ({ focusSubject }: TimerProps) => {
+export const Timer = ({ focusSubject, clearSubject }: TimerProps) => {
 	const [isStarted, setIsStarted] = useState<boolean>(false);
 	const [progress, setProgress] = useState<number>(1);
 	const [minutes, setMinutes] = useState<number>(0.1);
@@ -56,6 +57,10 @@ export const Timer = ({ focusSubject }: TimerProps) => {
 				/>
 			</View>
 
+			<View style={styles.timingWrapper}>
+				<Timing onChangeTime={setMinutes} />
+			</View>
+
 			<View style={styles.buttonWrapper}>
 				{!isStarted && (
 					<RoundedButton
@@ -70,6 +75,12 @@ export const Timer = ({ focusSubject }: TimerProps) => {
 						onPress={() => setIsStarted(false)}
 					/>
 				)}
+				<RoundedButton
+					title={"-"}
+					onPress={clearSubject}
+					size={50}
+					style={styles.clearSubjectWrapper}
+				/>
 			</View>
 		</View>
 	);
@@ -84,9 +95,15 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center"
 	},
+	timingWrapper: {
+		flex: 0.1,
+		flexDirection: "row",
+		alignItems: "center",
+		paddingTop: spacing.md
+	},
 	buttonWrapper: {
 		flex: 0.4,
-		flexDirection: "row",
+		flexDirection: "column",
 		padding: spacing.md,
 		justifyContent: "center",
 		alignItems: "center"
@@ -99,5 +116,10 @@ const styles = StyleSheet.create({
 	task: {
 		color: colors.textPrimary,
 		textAlign: "center"
+	},
+	clearSubjectWrapper: {
+		flexDirection: "row",
+		alignItems: "center",
+		marginTop: spacing.md
 	}
 });

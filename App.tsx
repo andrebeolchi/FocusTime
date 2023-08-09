@@ -15,7 +15,9 @@ export default function App() {
 				<Timer
 					focusSubject={currentSubject}
 					onTimerEnd={() => {}}
-					clearSubject={() => {}}
+					clearSubject={() => {
+						setCurrentSubject("");
+					}}
 				/>
 			)}
 			<StatusBar />
