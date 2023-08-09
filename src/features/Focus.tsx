@@ -33,7 +33,7 @@ export const Focus = ({ addSubject }: FocusProps) => {
 const styles = StyleSheet.create({
 	container: {},
 	inputContainer: {
-		paddingVertical: spacing.xl,
+		paddingTop: spacing.xl,
 		paddingHorizontal: spacing.lg,
 		flexDirection: "row",
 		alignItems: "center"

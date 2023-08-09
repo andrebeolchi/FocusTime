@@ -7,7 +7,7 @@ import { colors } from "./src/utils/colors";
 
 export default function App() {
 	const [currentSubject, setCurrentSubject] = useState<string>("");
-	const [history, setHistory] = useState<string[]>([]);
+	const [history, setHistory] = useState<string[]>(["temp feat"]);
 
 	return (
 		<SafeAreaView style={styles.container}>
