@@ -12,7 +12,7 @@ export const Countdown = ({
 	onProgress,
 	onEnd
 }: {
-	minutes: number;
+	minutes?: number;
 	isPaused: boolean;
 	onProgress: (progress: number) => void;
 	onEnd: () => void;

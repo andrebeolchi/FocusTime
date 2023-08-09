@@ -5,7 +5,7 @@ import { Timer } from "./src/features/Timer";
 import { colors } from "./src/utils/colors";
 
 export default function App() {
-	const [currentSubject, setCurrentSubject] = useState<string>("");
+	const [currentSubject, setCurrentSubject] = useState<string>("teste");
 
 	return (
 		<SafeAreaView style={styles.container}>
